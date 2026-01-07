@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-pt-24">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,21 +31,27 @@
 </script>
     
   </head>
-  <body class="min-h-screen bg-slate-50 text-slate-900">
-    <a class="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow" href="#main">Skip to content</a>
+  <body class="relative min-h-screen bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
+    <div class="fixed inset-0 -z-10 h-full w-full bg-slate-50">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 h-[500px] w-[500px] rounded-full bg-emerald-50/50 blur-[100px]"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 h-[500px] w-[500px] rounded-full bg-blue-50/50 blur-[100px]"></div>
+    </div>
 
-    <header class="border-b border-slate-200 bg-slate-50/90 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a class="text-lg font-semibold tracking-tight text-slate-900" href="/">FitMySim</a>
-        <nav class="flex items-center gap-6 text-sm font-medium">
-          <a class="text-slate-600 transition-all duration-200 ease-out hover:text-slate-900" href="/">Home</a>
-          <a class="text-slate-600 transition-all duration-200 ease-out hover:text-slate-900" href="/blog/">Blog</a>
-          <a class="text-slate-400" href="#">About</a>
+    <a class="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 shadow-xl ring-1 ring-slate-900/10" href="#main">Skip to content</a>
+
+    <header class="sticky top-0 z-50 border-b border-slate-200/50 bg-white/80 backdrop-blur-xl transition-all duration-300">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a class="flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900 transition-opacity hover:opacity-80" href="/">
+          FitMySim
+        </a>
+        <nav class="flex items-center gap-1 sm:gap-6">
+          <a class="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-900" href="/">Home</a>
+          <a class="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-900" href="/blog/">Blog</a>
         </nav>
       </div>
     </header>
 
-    <main id="main" class="mx-auto w-full max-w-6xl px-6 py-16">
+    <main id="main" class="mx-auto w-full max-w-6xl px-6 py-12 md:py-20">
       
 <section class="rounded-3xl border border-slate-200 bg-slate-100/70 px-8 py-12">
   <div class="max-w-3xl">
@@ -60,105 +66,127 @@
 </section>
 
 <section class="py-16" id="calculator">
-  <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out" x-data="calculator" x-init="init()">
-  <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
-    <div class="flex-1 space-y-6">
-      <div>
-        <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Simulator Fit Calculator</h2>
-        <p class="mt-2 text-sm text-slate-500">Provide room dimensions, player type, and budget. We will surface what fits and why.</p>
+  <div class="mx-auto max-w-7xl" x-data="calculator" x-init="init()">
+  <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
+    
+    <div class="space-y-8 lg:col-span-7">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">Configure your space</h2>
+        <p class="mt-2 text-base text-slate-500">Enter your dimensions to unlock compatible gear.</p>
       </div>
 
-      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out">
-        <div class="flex items-center justify-between">
-          <h3 class="text-base font-semibold text-slate-900">Room</h3>
-          <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">Dimensions</span>
+      <section class="group rounded-3xl border border-slate-200 bg-white p-8 shadow-medium transition-all duration-300 hover:shadow-lg">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">1</div>
+            <h3 class="text-lg font-semibold text-slate-900">Room Dimensions</h3>
+          </div>
+          <span class="text-xs font-medium uppercase tracking-wider text-slate-400">In Feet</span>
         </div>
-        <div class="mt-4 grid gap-4 md:grid-cols-3">
-          <div>
-            <label class="text-sm font-medium text-slate-700" for="room-depth">Depth (ft)</label>
-            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="room-depth" type="number" min="6" step="0.5" x-model.number="depth" placeholder="12" />
-            <p class="mt-2 text-xs text-slate-500">Measured wall-to-wall, screen to back wall.</p>
-            <p class="mt-2 text-xs text-amber-700" x-show="depth && depth < 12" x-transition>Depth under 12 ft limits radar accuracy.</p>
+        
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+          <div class="relative">
+            <label class="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500" for="room-depth">Depth</label>
+            <div class="relative">
+                <input class="w-full rounded-2xl border-0 bg-slate-50 px-4 py-3.5 text-slate-900 ring-1 ring-slate-200 transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-emerald-500" id="room-depth" type="number" min="6" step="0.5" x-model.number="depth" placeholder="12" />
+                <span class="absolute right-4 top-3.5 text-sm font-medium text-slate-400 pointer-events-none">ft</span>
+            </div>
+            <p class="mt-2 text-xs text-amber-600 font-medium" x-show="depth && depth < 12" x-transition>Depth &lt; 12ft limits radar.</p>
           </div>
-          <div>
-            <label class="text-sm font-medium text-slate-700" for="room-width">Width (ft)</label>
-            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="room-width" type="number" min="6" step="0.5" x-model.number="width" placeholder="10" />
-            <p class="mt-2 text-xs text-slate-500">Include any side clearance for safe swings.</p>
-            <p class="mt-2 text-xs text-amber-700" x-show="players === 'mixedRightyLefty' && width && width < 10" x-transition>Mixed handed play needs more width.</p>
+
+          <div class="relative">
+            <label class="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500" for="room-width">Width</label>
+            <div class="relative">
+                <input class="w-full rounded-2xl border-0 bg-slate-50 px-4 py-3.5 text-slate-900 ring-1 ring-slate-200 transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-emerald-500" id="room-width" type="number" min="6" step="0.5" x-model.number="width" placeholder="10" />
+                <span class="absolute right-4 top-3.5 text-sm font-medium text-slate-400 pointer-events-none">ft</span>
+            </div>
+            <p class="mt-2 text-xs text-amber-600 font-medium" x-show="players === 'mixedRightyLefty' && width && width < 10" x-transition>Mixed play needs &gt; 10ft.</p>
           </div>
-          <div>
-            <label class="text-sm font-medium text-slate-700" for="room-height">Height (ft)</label>
-            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="room-height" type="number" min="7" step="0.5" x-model.number="height" placeholder="9" />
-            <p class="mt-2 text-xs text-slate-500">Measured floor-to-ceiling at swing position.</p>
-            <p class="mt-2 text-xs text-amber-700" x-show="height && height < 8.5" x-transition>Ceiling under 8.5 ft is driver-limited.</p>
+
+          <div class="relative">
+            <label class="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500" for="room-height">Height</label>
+            <div class="relative">
+                <input class="w-full rounded-2xl border-0 bg-slate-50 px-4 py-3.5 text-slate-900 ring-1 ring-slate-200 transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-emerald-500" id="room-height" type="number" min="7" step="0.5" x-model.number="height" placeholder="9" />
+                <span class="absolute right-4 top-3.5 text-sm font-medium text-slate-400 pointer-events-none">ft</span>
+            </div>
+            <p class="mt-2 text-xs text-amber-600 font-medium" x-show="height && height < 8.5" x-transition>&lt; 8.5ft limits driver.</p>
           </div>
         </div>
       </section>
 
-      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out">
-        <div class="flex items-center justify-between">
-          <h3 class="text-base font-semibold text-slate-900">Players</h3>
-          <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">Handedness</span>
-        </div>
-        <p class="mt-2 text-xs text-slate-500">Choose who will use the bay most often.</p>
-        <div class="mt-4 space-y-3 text-sm">
-          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
-            <input type="radio" name="players" value="rightyOnly" x-model="players" />
-            Right-handed only
-          </label>
-          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
-            <input type="radio" name="players" value="mixedRightyLefty" x-model="players" />
-            Mixed righty/lefty
-          </label>
-        </div>
-      </section>
-
-      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out">
-        <div class="flex items-center justify-between">
-          <h3 class="text-base font-semibold text-slate-900">Budget</h3>
-          <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">Total build</span>
-        </div>
-        <p class="mt-2 text-xs text-slate-500">Use presets for speed or enter a custom ceiling.</p>
-        <div class="mt-4 space-y-3 text-sm">
-          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
-            <input type="radio" name="budget" value="1000" x-model="budgetPreset" />
-            $1,000 starter
-          </label>
-          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
-            <input type="radio" name="budget" value="5000" x-model="budgetPreset" />
-            $5,000 solid build
-          </label>
-          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
-            <input type="radio" name="budget" value="unlimited" x-model="budgetPreset" />
-            Unlimited
-          </label>
-          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
-            <input type="radio" name="budget" value="custom" x-model="budgetPreset" />
-            Custom
-          </label>
-          <div class="pt-2" x-show="budgetPreset === 'custom'" x-cloak>
-            <label class="text-xs text-slate-500" for="budget-custom">Custom budget</label>
-            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="budget-custom" type="number" min="500" step="100" x-model.number="budgetCustom" placeholder="7500" />
+      <section class="group rounded-3xl border border-slate-200 bg-white p-8 shadow-medium transition-all duration-300 hover:shadow-lg">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+             <div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">2</div>
+             <h3 class="text-lg font-semibold text-slate-900">Players</h3>
           </div>
         </div>
-      </section>
-
-      <section class="rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-sm transition-all duration-200 ease-out">
-        <div class="flex items-center justify-between">
-          <div>
-            <p class="text-sm font-semibold text-slate-700">Strict fit</p>
-            <p class="text-xs text-slate-500">Only show gear that fits your room exactly.</p>
-          </div>
-          <label class="flex items-center gap-2 text-sm">
-            <input type="checkbox" x-model="strictFit" />
-            On
+        
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <label class="cursor-pointer relative flex items-center gap-3 rounded-2xl border border-slate-200 p-4 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-50/30" :class="players === 'rightyOnly' ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500' : ''">
+            <input class="h-5 w-5 border-slate-300 text-emerald-600 focus:ring-emerald-500" type="radio" name="players" value="rightyOnly" x-model="players" />
+            <span class="font-medium text-slate-900">Right-handed only</span>
+          </label>
+          <label class="cursor-pointer relative flex items-center gap-3 rounded-2xl border border-slate-200 p-4 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-50/30" :class="players === 'mixedRightyLefty' ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500' : ''">
+            <input class="h-5 w-5 border-slate-300 text-emerald-600 focus:ring-emerald-500" type="radio" name="players" value="mixedRightyLefty" x-model="players" />
+            <span class="font-medium text-slate-900">Mixed Righty/Lefty</span>
           </label>
         </div>
       </section>
 
-      <div class="rounded-2xl border border-amber-200 bg-amber-100/70 p-4 text-sm text-amber-700" x-show="warningMessages.length" x-transition>
-        <p class="font-semibold">Room warnings</p>
-        <ul class="mt-2 list-disc space-y-1 pl-5">
+      <section class="group rounded-3xl border border-slate-200 bg-white p-8 shadow-medium transition-all duration-300 hover:shadow-lg">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+             <div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">3</div>
+             <h3 class="text-lg font-semibold text-slate-900">Budget Goal</h3>
+          </div>
+        </div>
+        
+        <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <label class="cursor-pointer relative flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-50/30" :class="budgetPreset === '1000' ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500' : ''">
+            <span class="font-medium text-slate-900">$1,000 Starter</span>
+            <input class="h-5 w-5 border-slate-300 text-emerald-600 focus:ring-emerald-500" type="radio" name="budget" value="1000" x-model="budgetPreset" />
+          </label>
+          <label class="cursor-pointer relative flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-50/30" :class="budgetPreset === '5000' ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500' : ''">
+            <span class="font-medium text-slate-900">$5,000 Solid</span>
+            <input class="h-5 w-5 border-slate-300 text-emerald-600 focus:ring-emerald-500" type="radio" name="budget" value="5000" x-model="budgetPreset" />
+          </label>
+          <label class="cursor-pointer relative flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-50/30" :class="budgetPreset === 'unlimited' ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500' : ''">
+            <span class="font-medium text-slate-900">Unlimited</span>
+            <input class="h-5 w-5 border-slate-300 text-emerald-600 focus:ring-emerald-500" type="radio" name="budget" value="unlimited" x-model="budgetPreset" />
+          </label>
+          <label class="cursor-pointer relative flex items-center justify-between rounded-2xl border border-slate-200 px-5 py-4 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-50/30" :class="budgetPreset === 'custom' ? 'border-emerald-500 bg-emerald-50/50 ring-1 ring-emerald-500' : ''">
+            <span class="font-medium text-slate-900">Custom</span>
+            <input class="h-5 w-5 border-slate-300 text-emerald-600 focus:ring-emerald-500" type="radio" name="budget" value="custom" x-model="budgetPreset" />
+          </label>
+        </div>
+        
+        <div class="mt-4" x-show="budgetPreset === 'custom'" x-cloak x-transition>
+            <label class="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500" for="budget-custom">Enter Amount</label>
+            <div class="relative">
+                <span class="absolute left-4 top-3.5 text-slate-400">$</span>
+                <input class="w-full rounded-2xl border-0 bg-slate-50 py-3.5 pl-8 pr-4 text-slate-900 ring-1 ring-slate-200 transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-emerald-500" id="budget-custom" type="number" min="500" step="100" x-model.number="budgetCustom" placeholder="7500" />
+            </div>
+        </div>
+      </section>
+      
+      <section class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-8 py-6 shadow-sm">
+        <div>
+           <p class="font-semibold text-slate-900">Strict Compatibility Mode</p>
+           <p class="text-sm text-slate-500">Hide items that don't fit perfectly.</p>
+        </div>
+        <label class="relative inline-flex cursor-pointer items-center">
+            <input type="checkbox" x-model="strictFit" class="peer sr-only">
+            <div class="h-7 w-12 rounded-full bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-emerald-500/20 peer-checked:bg-emerald-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all"></div>
+        </label>
+      </section>
+
+      <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm" x-show="warningMessages.length" x-cloak x-transition>
+        <div class="flex items-center gap-2 font-semibold">
+            <svg class="h-5 w-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            Room Considerations
+        </div>
+        <ul class="mt-3 list-inside list-disc space-y-1 ml-1 opacity-90">
           <template x-for="warning in warningMessages" :key="warning">
             <li x-text="warning"></li>
           </template>
@@ -166,9 +194,11 @@
       </div>
     </div>
 
-    <div class="w-full lg:w-[26rem]">
-      <div class="rounded-3xl border border-slate-200 bg-slate-100/70 p-6">
-        <section class="rounded-2xl border border-slate-200 bg-white p-4 text-sm shadow-sm transition-all duration-200 ease-out">
+    <div class="lg:col-span-5">
+      <div class="sticky top-24 space-y-6">
+        <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/50">
+           <div class="bg-slate-50/50 p-6 backdrop-blur-sm">
+             <section class="rounded-2xl border border-slate-200 bg-white p-4 text-sm shadow-sm transition-all duration-200 ease-out">
   <div class="flex items-start justify-between">
     <div>
       <p class="font-semibold text-slate-700">Room summary</p>
@@ -185,8 +215,7 @@
     <p class="text-slate-500" x-show="!warningMessages.length" x-cloak x-transition>Looks good so far.</p>
   </div>
 </section>
-        <div class="mt-6 space-y-4">
-          <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+             <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
   <div class="flex items-start justify-between">
     <div>
       <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Room fit score</p>
@@ -201,37 +230,58 @@
   </div>
   <p class="mt-4 text-xs text-slate-500">What this means for your setup: higher scores indicate fewer compromises on club selection and monitor accuracy.</p>
 </section>
-          <div class="transition-all duration-200 ease-out" x-bind:class="hasBasics && !loading ? 'opacity-100' : 'opacity-50 blur-[1px] pointer-events-none'">
-            <div class="mt-6 space-y-4">
-              <template x-for="rec in recommendations()" :key="rec.key">
-                <div>
-                  <template x-if="rec.item">
-                    <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 ease-out hover:shadow-md">
-  <div class="flex flex-col gap-5 sm:flex-row sm:items-start">
-    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
-      <img class="h-full w-full object-cover" :src="rec.item.image" :alt="rec.item.name" loading="lazy" />
+           </div>
+
+           <div class="p-6">
+             <div class="transition-all duration-300 ease-out" x-bind:class="hasBasics && !loading ? 'opacity-100 translate-y-0' : 'opacity-40 blur-[2px] pointer-events-none'">
+                <div class="space-y-6">
+                  <template x-for="rec in recommendations()" :key="rec.key">
+                    <div class="animate-fade-in">
+                      <template x-if="rec.item">
+                        <div class="group relative flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md sm:flex-row sm:items-start">
+  <div class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-50 ring-1 ring-slate-900/5 sm:h-24 sm:w-24">
+    <img class="h-full w-full object-cover mix-blend-multiply transition-transform duration-500 will-change-transform group-hover:scale-105" :src="rec.item.image" :alt="rec.item.name" loading="lazy" />
+  </div>
+
+  <div class="flex min-w-0 flex-1 flex-col gap-3">
+    <div class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-widest text-slate-400">
+      <span x-text="rec.category"></span>
+      <span class="h-1 w-1 rounded-full bg-slate-300"></span>
+      <span x-text="rec.item.tier"></span>
     </div>
-    <div class="flex-1 space-y-2">
-      <div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-wide text-slate-400">
-        <span x-text="rec.category"></span>
-        <span class="rounded-full bg-emerald-700/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-700" x-text="rec.item.tier"></span>
-        <span class="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-600" x-text="rec.item.badge"></span>
+
+    <div class="space-y-1">
+      <h3 class="text-lg font-bold tracking-tight text-slate-900" x-text="rec.item.name"></h3>
+      <div class="flex flex-wrap gap-2 pt-1" x-show="rec.item.badge">
+        <span class="inline-flex items-center rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-600" x-text="rec.item.badge"></span>
       </div>
-      <p class="text-lg font-semibold text-slate-900" x-text="rec.item.name"></p>
-      <p class="text-sm text-slate-600" x-text="rec.item.notes"></p>
-      <template x-if="rec.fitNotes">
-        <p class="text-xs text-slate-500"><span class="font-semibold text-slate-600">Why this works:</span> <span x-text="rec.fitNotes"></span></p>
-      </template>
     </div>
-    <div class="flex flex-col items-start gap-3 sm:items-end">
-      <p class="text-lg font-semibold text-slate-900" x-text="formatPrice(rec.item.price)"></p>
-      <a class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 ease-out hover:bg-emerald-800" :href="rec.item.affiliate_link" target="_blank" rel="sponsored nofollow">Check price</a>
+
+    <template x-if="rec.fitNotes">
+      <div class="relative mt-1 flex items-start gap-3 rounded-lg bg-emerald-50/50 px-3 py-2.5 text-sm leading-relaxed text-slate-700 ring-1 ring-inset ring-emerald-900/5">
+        <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <div>
+          <span class="block font-semibold text-emerald-900/90">Why this works</span>
+          <span class="text-slate-600" x-text="rec.fitNotes"></span>
+        </div>
+      </div>
+    </template>
+
+    <p class="text-sm leading-relaxed text-slate-500" x-text="rec.item.notes"></p>
+  </div>
+
+  <div class="flex flex-row items-center justify-between gap-4 border-t border-slate-100 pt-4 sm:flex-col sm:items-end sm:border-0 sm:pt-0 sm:pl-4">
+    <div class="text-right">
+      <div class="text-lg font-bold tracking-tight text-slate-900" x-text="formatPrice(rec.item.price)"></div>
     </div>
+    <a class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-lg border border-slate-200 bg-white px-4 text-xs font-semibold uppercase tracking-wide text-slate-700 shadow-sm transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2" :href="rec.item.affiliate_link" target="_blank" rel="sponsored nofollow">
+      Check Price
+    </a>
   </div>
 </div>
-                  </template>
-                  <template x-if="!rec.item">
-                    <div class="rounded-2xl border border-amber-200 bg-amber-100/70 p-5 text-sm text-amber-900 shadow-sm">
+                      </template>
+                      <template x-if="!rec.item">
+                        <div class="rounded-2xl border border-amber-200 bg-amber-100/70 p-5 text-sm text-amber-900 shadow-sm">
   <div class="flex flex-wrap items-center gap-2">
     <p class="text-xs font-semibold uppercase tracking-wide text-amber-700" x-text="rec.title"></p>
     <span class="rounded-full bg-white/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber-700">No match</span>
@@ -239,41 +289,58 @@
   <p class="mt-2 text-base font-semibold">No match found</p>
   <p class="mt-2 text-sm" x-text="rec.fallback"></p>
 </div>
+                      </template>
+                    </div>
                   </template>
                 </div>
-              </template>
-            </div>
-          </div>
-          <div class="rounded-2xl border border-dashed border-slate-200 bg-white/60 p-4 text-sm text-slate-500" x-show="loading" x-cloak x-transition>
-            Loading gear data...
-          </div>
-          <div class="rounded-2xl border border-dashed border-slate-200 bg-white/60 p-4 text-sm text-slate-500" x-show="!hasBasics && !loading" x-cloak x-transition>
-            Enter room dimensions to see recommendations.
-          </div>
+             </div>
+
+             <div class="flex items-center justify-center py-12 text-sm text-slate-500" x-show="loading" x-cloak>
+                <svg class="mr-3 h-5 w-5 animate-spin text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                Analyzing gear...
+             </div>
+             
+             <div class="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-100 bg-slate-50/50 py-12 text-center text-sm text-slate-500" x-show="!hasBasics && !loading" x-cloak>
+                <div class="mb-3 rounded-full bg-slate-100 p-3">
+                    <svg class="h-6 w-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                </div>
+                <p class="font-medium text-slate-900">Awaiting Dimensions</p>
+                <p class="mt-1 max-w-[200px]">Enter your room details to see the best fit.</p>
+             </div>
+           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-<div class="mt-8">
+</div>
+
+<div class="mt-20 border-t border-slate-100 py-8">
   
 </div>
 </section>
     </main>
 
-    <footer class="border-t border-slate-200 bg-slate-50">
-      <div class="mx-auto max-w-6xl px-6 py-12 text-sm text-slate-600">
-        <p class="font-medium text-slate-900">Affiliate disclosure</p>
-        <p class="mt-2">
-          Some links on this site may be affiliate links. If you click through and make a purchase,
-          we may earn a commission at no additional cost to you.
-        </p>
-        <p class="mt-4 font-medium text-slate-900">Disclaimer</p>
-        <p class="mt-2">
-          Content is for informational purposes only. We do our best to keep information accurate,
-          but make no guarantees and assume no liability for decisions made based on this site.
-        </p>
-        <p class="mt-6 text-xs text-slate-400">Copyright 2026 FitMySim. All rights reserved.</p>
+    <footer class="border-t border-slate-200 bg-white/50 backdrop-blur-sm">
+      <div class="mx-auto max-w-6xl px-6 py-12 text-sm text-slate-500">
+        <div class="grid gap-8 md:grid-cols-2">
+          <div>
+            <p class="font-semibold text-slate-900">Affiliate disclosure</p>
+            <p class="mt-2 leading-relaxed">
+              Some links on this site may be affiliate links. If you click through and make a purchase,
+              we may earn a commission at no additional cost to you.
+            </p>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-900">Disclaimer</p>
+            <p class="mt-2 leading-relaxed">
+              Content is for informational purposes only. We do our best to keep information accurate,
+              but make no guarantees and assume no liability for decisions made based on this site.
+            </p>
+          </div>
+        </div>
+        <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-100 pt-8 sm:flex-row">
+            <p class="text-xs text-slate-400">&copy; 2026 FitMySim. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   </body>

@@ -1,34 +1,30 @@
 ---
 layout: layouts/base.njk
-title: "Blog"
-description: "Guides and setup advice for building a golf simulator that fits your space."
-permalink: /blog/
+title: FitMySim
+description: "Find the right simulator setup for your space and budget."
 ---
 
-<section class="rounded-3xl border border-slate-200 bg-slate-100/70 px-8 py-12">
-  <div class="max-w-3xl">
-    <h1 class="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">Sim build guides</h1>
-    <p class="mt-4 text-lg text-slate-600">Evidence-based guidance on sizing a room, selecting gear, and avoiding costly mismatches.</p>
+<section class="relative mx-auto max-w-4xl py-12 text-center md:py-20">
+  <div class="animate-fade-in-up space-y-6">
+    <h1 class="text-5xl font-extrabold tracking-tighter text-slate-900 md:text-7xl">
+      The precision fit check <br class="hidden md:block" /> for your <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">dream simulator.</span>
+    </h1>
+    <p class="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+      Built for homeowners and studio teams who need exact fit guidance. <br class="hidden md:block" />
+      No sales bias. No guesswork. Just data.
+    </p>
+    
+    <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a class="inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-8 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-xl" href="#calculator">
+        Start Fit Check
+      </a>
+      <a class="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-semibold text-slate-700 shadow-md shadow-slate-200/50 ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-50 hover:text-slate-900" href="/blog/">
+        Read the Blog
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="py-16">
-  <div class="space-y-6">
-    {% for post in collections.blog | reverse %}
-    <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out hover:shadow-md">
-      <div class="flex items-center gap-3 text-xs uppercase tracking-wide text-slate-400">
-        <span>{{ post.date | date("%Y") }}</span>
-        <span>-</span>
-        <span>FitMySim</span>
-      </div>
-      <h2 class="mt-3 text-2xl font-semibold text-slate-900">
-        <a class="transition-all duration-200 ease-out hover:text-slate-700" href="{{ post.url }}">{{ post.data.title }}</a>
-      </h2>
-      <p class="mt-3 text-sm text-slate-600">{{ post.data.excerpt }}</p>
-      <a class="mt-4 inline-flex items-center text-sm font-semibold text-emerald-700 transition-all duration-200 ease-out hover:text-emerald-800" href="{{ post.url }}">
-        Read the guide ->
-      </a>
-    </article>
-    {% endfor %}
-  </div>
+<section class="py-12" id="calculator">
+  {% include "components/calculator.njk" %}
 </section>
