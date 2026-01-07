@@ -1,0 +1,139 @@
+<section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out" x-data="calculator" x-init="init()">
+  <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
+    <div class="flex-1 space-y-6">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Simulator Fit Calculator</h2>
+        <p class="mt-2 text-sm text-slate-500">Provide room dimensions, player type, and budget. We will surface what fits and why.</p>
+      </div>
+
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-semibold text-slate-900">Room</h3>
+          <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">Dimensions</span>
+        </div>
+        <div class="mt-4 grid gap-4 md:grid-cols-3">
+          <div>
+            <label class="text-sm font-medium text-slate-700" for="room-depth">Depth (ft)</label>
+            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="room-depth" type="number" min="6" step="0.5" x-model.number="depth" placeholder="12" />
+            <p class="mt-2 text-xs text-slate-500">Measured wall-to-wall, screen to back wall.</p>
+            <p class="mt-2 text-xs text-amber-700" x-show="depth && depth < 12" x-transition>Depth under 12 ft limits radar accuracy.</p>
+          </div>
+          <div>
+            <label class="text-sm font-medium text-slate-700" for="room-width">Width (ft)</label>
+            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="room-width" type="number" min="6" step="0.5" x-model.number="width" placeholder="10" />
+            <p class="mt-2 text-xs text-slate-500">Include any side clearance for safe swings.</p>
+            <p class="mt-2 text-xs text-amber-700" x-show="players === 'mixedRightyLefty' && width && width < 10" x-transition>Mixed handed play needs more width.</p>
+          </div>
+          <div>
+            <label class="text-sm font-medium text-slate-700" for="room-height">Height (ft)</label>
+            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="room-height" type="number" min="7" step="0.5" x-model.number="height" placeholder="9" />
+            <p class="mt-2 text-xs text-slate-500">Measured floor-to-ceiling at swing position.</p>
+            <p class="mt-2 text-xs text-amber-700" x-show="height && height < 8.5" x-transition>Ceiling under 8.5 ft is driver-limited.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-semibold text-slate-900">Players</h3>
+          <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">Handedness</span>
+        </div>
+        <p class="mt-2 text-xs text-slate-500">Choose who will use the bay most often.</p>
+        <div class="mt-4 space-y-3 text-sm">
+          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
+            <input type="radio" name="players" value="rightyOnly" x-model="players" />
+            Right-handed only
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
+            <input type="radio" name="players" value="mixedRightyLefty" x-model="players" />
+            Mixed righty/lefty
+          </label>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-semibold text-slate-900">Budget</h3>
+          <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">Total build</span>
+        </div>
+        <p class="mt-2 text-xs text-slate-500">Use presets for speed or enter a custom ceiling.</p>
+        <div class="mt-4 space-y-3 text-sm">
+          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
+            <input type="radio" name="budget" value="1000" x-model="budgetPreset" />
+            $1,000 starter
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
+            <input type="radio" name="budget" value="5000" x-model="budgetPreset" />
+            $5,000 solid build
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
+            <input type="radio" name="budget" value="unlimited" x-model="budgetPreset" />
+            Unlimited
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-3 transition-all duration-200 ease-out hover:border-slate-300">
+            <input type="radio" name="budget" value="custom" x-model="budgetPreset" />
+            Custom
+          </label>
+          <div class="pt-2" x-show="budgetPreset === 'custom'" x-cloak>
+            <label class="text-xs text-slate-500" for="budget-custom">Custom budget</label>
+            <input class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-all duration-200 ease-out focus:border-emerald-600" id="budget-custom" type="number" min="500" step="100" x-model.number="budgetCustom" placeholder="7500" />
+          </div>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-sm transition-all duration-200 ease-out">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-semibold text-slate-700">Strict fit</p>
+            <p class="text-xs text-slate-500">Only show gear that fits your room exactly.</p>
+          </div>
+          <label class="flex items-center gap-2 text-sm">
+            <input type="checkbox" x-model="strictFit" />
+            On
+          </label>
+        </div>
+      </section>
+
+      <div class="rounded-2xl border border-amber-200 bg-amber-100/70 p-4 text-sm text-amber-700" x-show="warningMessages.length" x-transition>
+        <p class="font-semibold">Room warnings</p>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <template x-for="warning in warningMessages" :key="warning">
+            <li x-text="warning"></li>
+          </template>
+        </ul>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-[26rem]">
+      <div class="rounded-3xl border border-slate-200 bg-slate-100/70 p-6">
+        {% include "components/warnings.njk" %}
+        <div class="mt-6 space-y-4">
+          {% include "components/room-score.njk" %}
+          <div class="transition-all duration-200 ease-out" x-bind:class="hasBasics && !loading ? 'opacity-100' : 'opacity-50 blur-[1px] pointer-events-none'">
+            <div class="mt-6 space-y-4">
+              <template x-for="rec in recommendations()" :key="rec.key">
+                <div>
+                  <template x-if="rec.item">
+                    {% include "components/product-card.njk" %}
+                  </template>
+                  <template x-if="!rec.item">
+                    {% include "components/result-card-empty.njk" %}
+                  </template>
+                </div>
+              </template>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-dashed border-slate-200 bg-white/60 p-4 text-sm text-slate-500" x-show="loading" x-cloak x-transition>
+            Loading gear data...
+          </div>
+          <div class="rounded-2xl border border-dashed border-slate-200 bg-white/60 p-4 text-sm text-slate-500" x-show="!hasBasics && !loading" x-cloak x-transition>
+            Enter room dimensions to see recommendations.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="mt-8">
+  {% include "components/ads-slot.njk" %}
+</div>

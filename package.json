@@ -1,0 +1,24 @@
+{
+  "name": "fitmysim",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm-run-all --parallel tailwind:watch eleventy:serve",
+    "build": "npm-run-all tailwind:build eleventy:build",
+    "tailwind:watch": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/tailwind.generated.css --postcss --watch",
+    "tailwind:build": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/tailwind.generated.css --postcss --minify",
+    "eleventy:serve": "eleventy --serve",
+    "eleventy:build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "alpinejs": "^3.15.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "autoprefixer": "^10.4.23",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}

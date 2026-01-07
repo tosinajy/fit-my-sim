@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sim-pc-starter",
+    "name": "Sim PC Starter",
+    "price": 899,
+    "tier": "budget",
+    "affiliate_link": "https://example.com/sim-pc-starter",
+    "image": "/img/pcs/sim-pc-starter.jpg",
+    "badge": "Entry ready",
+    "notes": "Why this: solid 1080p build that runs most sim software smoothly."
+  },
+  {
+    "id": "sim-pc-balanced",
+    "name": "Sim PC Balanced",
+    "price": 1599,
+    "tier": "mid",
+    "affiliate_link": "https://example.com/sim-pc-balanced",
+    "image": "/img/pcs/sim-pc-balanced.jpg",
+    "badge": "Best value",
+    "notes": "Why this: great price-to-performance for high settings at 1440p."
+  },
+  {
+    "id": "sim-pc-pro",
+    "name": "Sim PC Pro",
+    "price": 2599,
+    "tier": "pro",
+    "affiliate_link": "https://example.com/sim-pc-pro",
+    "image": "/img/pcs/sim-pc-pro.jpg",
+    "badge": "4K ready",
+    "notes": "Why this: high-end GPU and CPU combo for 4K multi-display setups."
+  }
+]

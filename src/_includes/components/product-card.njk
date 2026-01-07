@@ -1,0 +1,23 @@
+<div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 ease-out hover:shadow-md">
+  <div class="flex flex-col gap-5 sm:flex-row sm:items-start">
+    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
+      <img class="h-full w-full object-cover" :src="rec.item.image" :alt="rec.item.name" loading="lazy" />
+    </div>
+    <div class="flex-1 space-y-2">
+      <div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-wide text-slate-400">
+        <span x-text="rec.category"></span>
+        <span class="rounded-full bg-emerald-700/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-700" x-text="rec.item.tier"></span>
+        <span class="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-600" x-text="rec.item.badge"></span>
+      </div>
+      <p class="text-lg font-semibold text-slate-900" x-text="rec.item.name"></p>
+      <p class="text-sm text-slate-600" x-text="rec.item.notes"></p>
+      <template x-if="rec.fitNotes">
+        <p class="text-xs text-slate-500"><span class="font-semibold text-slate-600">Why this works:</span> <span x-text="rec.fitNotes"></span></p>
+      </template>
+    </div>
+    <div class="flex flex-col items-start gap-3 sm:items-end">
+      <p class="text-lg font-semibold text-slate-900" x-text="formatPrice(rec.item.price)"></p>
+      <a class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 ease-out hover:bg-emerald-800" :href="rec.item.affiliate_link" target="_blank" rel="sponsored nofollow">Check price</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "name": "FitMySim",
+  "description": "Golf simulator insights, reviews, and build guides.",
+  "baseUrl": "https://example.com",
+  "enableAds": true,
+  "enableAnalytics": true,
+  "ga4MeasurementId": "",
+  "adsenseClientId": "",
+  "amazonTag": "",
+  "shopIndoorGolfId": "",
+  "carlsPlaceId": ""
+}

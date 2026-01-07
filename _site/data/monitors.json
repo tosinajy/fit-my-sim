@@ -1,0 +1,44 @@
+[
+  {
+    "id": "garmin-r10",
+    "name": "Garmin Approach R10",
+    "price": 599,
+    "tier": "budget",
+    "affiliate_link": "https://example.com/garmin-r10",
+    "image": "/img/monitors/garmin-r10.jpg",
+    "badge": "Best value portable",
+    "notes": "Portable radar unit; needs more ball flight for accuracy.",
+    "type": "radar",
+    "min_depth_ft": 16,
+    "min_width_ft": 10,
+    "min_height_ft": 8
+  },
+  {
+    "id": "skytrak-plus",
+    "name": "SkyTrak+",
+    "price": 2995,
+    "tier": "mid",
+    "affiliate_link": "https://example.com/skytrak-plus",
+    "image": "/img/monitors/skytrak-plus.jpg",
+    "badge": "Indoor-friendly",
+    "notes": "Photometric capture; works well in shorter rooms.",
+    "type": "photometric",
+    "min_depth_ft": 10,
+    "min_width_ft": 10,
+    "min_height_ft": 9
+  },
+  {
+    "id": "trackman-4",
+    "name": "TrackMan 4",
+    "price": 24999,
+    "tier": "pro",
+    "affiliate_link": "https://example.com/trackman-4",
+    "image": "/img/monitors/trackman-4.jpg",
+    "badge": "Tour standard",
+    "notes": "Dual radar + optics with top-end accuracy.",
+    "type": "radar",
+    "min_depth_ft": 18,
+    "min_width_ft": 12,
+    "min_height_ft": 9
+  }
+]

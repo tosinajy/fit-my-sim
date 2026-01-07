@@ -1,0 +1,15 @@
+<section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <div class="flex items-start justify-between">
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Room fit score</p>
+      <p class="mt-3 text-4xl font-semibold text-slate-900" x-text="roomScore.score"></p>
+      <p class="mt-2 text-sm text-slate-600" x-text="roomScore.label"></p>
+    </div>
+    <div class="rounded-full bg-emerald-700 px-3 py-1 text-xs font-semibold text-white">Live</div>
+  </div>
+  <div class="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-xs text-slate-600">
+    <span class="font-semibold text-slate-700">What's limiting you most:</span>
+    <span x-text="roomScore.limiting"></span>
+  </div>
+  <p class="mt-4 text-xs text-slate-500">What this means for your setup: higher scores indicate fewer compromises on club selection and monitor accuracy.</p>
+</section>

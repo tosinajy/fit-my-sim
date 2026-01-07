@@ -1,0 +1,4 @@
+# Ads.txt placeholder
+# Replace the following lines with your real ad system entries.
+example.com, 123456, DIRECT, f08c47fec0942fa0
+example.com, 987654, RESELLER, f08c47fec0942fa0

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "country-club-elite",
+    "name": "Country Club Elite Mat",
+    "price": 1199,
+    "tier": "pro",
+    "affiliate_link": "https://example.com/country-club-elite",
+    "image": "/img/mats/country-club-elite.jpg",
+    "badge": "Tour feel",
+    "notes": "Why this: top turf blend with excellent feedback and durability."
+  },
+  {
+    "id": "sigpro-softy",
+    "name": "SIGPRO Softy",
+    "price": 999,
+    "tier": "mid",
+    "affiliate_link": "https://example.com/sigpro-softy",
+    "image": "/img/mats/sigpro-softy.jpg",
+    "badge": "Joint friendly",
+    "notes": "Why this: forgiving surface that reduces wrist and elbow strain."
+  },
+  {
+    "id": "real-feel-basic",
+    "name": "Real Feel Basic Mat",
+    "price": 349,
+    "tier": "budget",
+    "affiliate_link": "https://example.com/real-feel-basic",
+    "image": "/img/mats/real-feel-basic.jpg",
+    "badge": "Starter pick",
+    "notes": "Why this: affordable entry mat that still holds up to regular use."
+  }
+]

@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: FitMySim
+description: "Find the right simulator setup for your space and budget."
+---
+
+<section class="rounded-3xl border border-slate-200 bg-slate-100/70 px-8 py-12">
+  <div class="max-w-3xl">
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">Plan a simulator setup that fits your room without swing compromises.</h1>
+    <p class="mt-4 text-lg text-slate-600">Built for homeowners, builders, and studio teams who need precise fit guidance before buying gear.</p>
+    <p class="mt-4 text-sm text-slate-500">No signup. No sales bias. No guesswork.</p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="inline-flex items-center rounded-lg bg-emerald-700 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 ease-out hover:bg-emerald-800" href="#calculator">Start the fit check</a>
+      <a class="inline-flex items-center rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-700 transition-all duration-200 ease-out hover:border-slate-400 hover:text-slate-900" href="/blog/">Read the blog</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-16" id="calculator">
+  {% include "components/calculator.njk" %}
+</section>

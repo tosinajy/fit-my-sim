@@ -1,0 +1,9 @@
+{% if site.enableAnalytics and site.ga4MeasurementId %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga4MeasurementId }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.ga4MeasurementId }}');
+</script>
+{% endif %}

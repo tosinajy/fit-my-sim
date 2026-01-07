@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased leading-relaxed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-semibold text-slate-900;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-emerald-200 ring-offset-2 ring-offset-slate-50;
+  }
+}

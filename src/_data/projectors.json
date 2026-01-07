@@ -1,0 +1,35 @@
+[
+  {
+    "id": "benq-tk700",
+    "name": "BenQ TK700",
+    "price": 1499,
+    "tier": "mid",
+    "affiliate_link": "https://example.com/benq-tk700",
+    "image": "/img/projectors/benq-tk700.jpg",
+    "badge": "Low latency",
+    "notes": "Short note: great all-around 4K option for mixed gaming and sim use.",
+    "throw_type": "standard"
+  },
+  {
+    "id": "optoma-gt1080hdr",
+    "name": "Optoma GT1080HDR",
+    "price": 799,
+    "tier": "budget",
+    "affiliate_link": "https://example.com/optoma-gt1080hdr",
+    "image": "/img/projectors/optoma-gt1080hdr.jpg",
+    "badge": "Short throw",
+    "notes": "Short note: compact short-throw for smaller rooms.",
+    "min_throw_distance_ft": 4
+  },
+  {
+    "id": "epson-ls12000",
+    "name": "Epson LS12000",
+    "price": 4999,
+    "tier": "pro",
+    "affiliate_link": "https://example.com/epson-ls12000",
+    "image": "/img/projectors/epson-ls12000.jpg",
+    "badge": "Premium laser",
+    "notes": "Short note: bright laser projector for large premium bays.",
+    "throw_type": "standard"
+  }
+]
