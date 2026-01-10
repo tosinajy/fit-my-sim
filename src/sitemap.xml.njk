@@ -10,6 +10,11 @@ layout: false
   <url>
     <loc>{{ site.baseUrl }}/blog/</loc>
   </url>
+  {% for build in build_sizes %}
+  <url>
+    <loc>{{ site.baseUrl }}/builds/{{ build.slug }}/</loc>
+  </url>
+  {% endfor %}
   {% for post in collections.blog %}
   <url>
     <loc>{{ site.baseUrl }}{{ post.url }}</loc>

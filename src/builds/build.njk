@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: build_sizes
+  size: 1
+  alias: build
+permalink: /builds/{{ build.slug }}/index.html
+eleventyComputed:
+  title: "{{ build.label }} Golf Simulator Setup"
+  description: "Room-specific simulator guidance for a {{ build.label }} footprint."
+---
+
+<section class="rounded-3xl border border-slate-200 bg-slate-100/70 px-8 py-12">
+  <div class="max-w-3xl">
+    <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">Room build guide</p>
+    <h1 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">{{ build.label }} Golf Simulator Setup</h1>
+    <p class="mt-4 text-lg text-slate-600">{{ build.notes }}</p>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="grid gap-8 lg:grid-cols-3">
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-semibold text-slate-900">What fits well here</h2>
+      <p class="mt-3 text-sm text-slate-600">This footprint supports a centered hitting line and a full-width screen while keeping swing clearance.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-semibold text-slate-900">Common compromises</h2>
+      <p class="mt-3 text-sm text-slate-600">Depth may still favor photometric systems unless you can push the screen forward.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-semibold text-slate-900">Recommended layout tips</h2>
+      <p class="mt-3 text-sm text-slate-600">Plan for 12-18 inches behind the screen and keep the hitting strip centered.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16">
+  {% set calculatorDefaults = build %}
+  {% include "components/calculator.njk" %}
+</section>

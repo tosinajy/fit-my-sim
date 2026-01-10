@@ -1,35 +1,46 @@
 [
   {
     "id": "benq-tk700",
-    "name": "BenQ TK700",
-    "price": 1499,
+    "name": "BenQ TK700STi",
     "tier": "mid",
+    "badge": "Best value",
     "affiliate_link": "https://example.com/benq-tk700",
     "image": "/img/projectors/benq-tk700.jpg",
-    "badge": "Low latency",
-    "notes": "Short note: great all-around 4K option for mixed gaming and sim use.",
-    "throw_type": "standard"
+    "notes": "Bright short-throw coverage for most bays.",
+    "min_throw_distance_ft": 9,
+    "throw_type": "short"
   },
   {
     "id": "optoma-gt1080hdr",
     "name": "Optoma GT1080HDR",
-    "price": 799,
     "tier": "budget",
+    "badge": "Starter short-throw",
     "affiliate_link": "https://example.com/optoma-gt1080hdr",
     "image": "/img/projectors/optoma-gt1080hdr.jpg",
-    "badge": "Short throw",
-    "notes": "Short note: compact short-throw for smaller rooms.",
-    "min_throw_distance_ft": 4
+    "notes": "Compact short-throw with solid brightness.",
+    "min_throw_distance_ft": 8,
+    "throw_type": "short"
   },
   {
     "id": "epson-ls12000",
     "name": "Epson LS12000",
-    "price": 4999,
     "tier": "pro",
+    "badge": "Premium 4K",
     "affiliate_link": "https://example.com/epson-ls12000",
     "image": "/img/projectors/epson-ls12000.jpg",
-    "badge": "Premium laser",
-    "notes": "Short note: bright laser projector for large premium bays.",
+    "notes": "High-end laser with exceptional image quality.",
+    "min_throw_distance_ft": 12,
+    "throw_type": "standard"
+  },
+  {
+    "id": "viewsonic-px701",
+    "name": "ViewSonic PX701",
+    "tier": "mid",
+    "badge": "Bright room",
+    "affiliate_link": "https://example.com/viewsonic-px701",
+    "image": "/img/projectors/viewsonic-px701.jpg",
+    "notes": "Strong brightness for ambient light control.",
+    "min_throw_distance_ft": 11,
     "throw_type": "standard"
   }
 ]

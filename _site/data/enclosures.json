@@ -1,38 +1,46 @@
 [
   {
     "id": "sigpro-premium",
-    "name": "SIGPRO Premium Enclosure",
-    "price": 3299,
+    "name": "SIGPRO Premium Impact Screen",
     "tier": "mid",
+    "badge": "Best all-around",
     "affiliate_link": "https://example.com/sigpro-premium",
     "image": "/img/enclosures/sigpro-premium.jpg",
-    "badge": "Most popular",
-    "notes": "Balanced depth and padding for home garages.",
-    "min_height_ft": 9,
+    "notes": "Balanced screen tension and clean image return.",
+    "min_height_ft": 8.5,
     "recommended_depth_ft": 5
   },
   {
     "id": "carlspremier-8",
-    "name": "Carl's Place Premier 8",
-    "price": 3999,
-    "tier": "mid",
+    "name": "Carl's Place 8x8 Enclosure",
+    "tier": "budget",
+    "badge": "Starter-friendly",
     "affiliate_link": "https://example.com/carlspremier-8",
     "image": "/img/enclosures/carlspremier-8.jpg",
-    "badge": "DIY favorite",
-    "notes": "Strong kit with easy setup and solid impact screen.",
+    "notes": "Compact enclosure for tight spaces.",
     "min_height_ft": 8,
-    "recommended_depth_ft": 6
+    "recommended_depth_ft": 4
   },
   {
-    "id": "fivesurface-pro",
-    "name": "Five Surface Pro Studio",
-    "price": 12999,
+    "id": "full-room-pro",
+    "name": "Full Room Pro Finish",
     "tier": "pro",
-    "affiliate_link": "https://example.com/fivesurface-pro",
-    "image": "/img/enclosures/fivesurface-pro.jpg",
-    "badge": "Commercial build",
-    "notes": "Premium materials and full-room finish.",
-    "min_height_ft": 10,
+    "badge": "Studio grade",
+    "affiliate_link": "https://example.com/full-room-pro",
+    "image": "/img/enclosures/full-room-pro.jpg",
+    "notes": "Premium enclosure with full-room treatment.",
+    "min_height_ft": 9,
     "recommended_depth_ft": 8
+  },
+  {
+    "id": "pro-curved",
+    "name": "Curved Bay Enclosure",
+    "tier": "mid",
+    "badge": "Immersive view",
+    "affiliate_link": "https://example.com/pro-curved",
+    "image": "/img/enclosures/pro-curved.jpg",
+    "notes": "Wraparound edges with deeper depth needs.",
+    "min_height_ft": 9,
+    "recommended_depth_ft": 7
   }
 ]

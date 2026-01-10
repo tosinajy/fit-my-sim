@@ -3,31 +3,22 @@
     <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
       <img class="h-full w-full object-cover" :src="rec.item.image" :alt="rec.item.name" loading="lazy" />
     </div>
-    <div class="flex-1 space-y-2">
+    <div class="flex-1 space-y-3">
       <div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-wide text-slate-400">
-        <span x-text="rec.category"></span>
-        <span class="rounded-full bg-emerald-700/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-700" x-text="rec.item.tier"></span>
+        <span x-text="rec.item.name"></span>
+        <span class="rounded-full bg-emerald-700/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-700" x-text="rec.badgeLabel"></span>
         <span class="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-600" x-text="rec.item.badge"></span>
       </div>
-      <p class="text-lg font-semibold text-slate-900" x-text="rec.item.name"></p>
-      <div class="flex flex-wrap items-center gap-2 text-xs text-slate-600">
-        <span class="rounded-full bg-slate-100 px-2 py-1 font-semibold" x-text="`Fit ${rec.fitScore}%`"></span>
-        <span x-text="rec.fitLabel"></span>
+      <p class="text-sm font-semibold text-slate-900">Why this fits</p>
+      <p class="text-sm text-slate-600" x-text="rec.fitNotes"></p>
+      <div class="flex items-center gap-2 text-xs text-slate-500">
+        <span class="rounded-full px-2 py-1 text-[10px] font-semibold uppercase tracking-wide" :class="rec.requiresChanges ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'" x-text="rec.fitLabel"></span>
+        <span x-text="rec.item.notes"></span>
       </div>
-      <div class="h-1.5 w-full rounded-full bg-slate-100">
-        <div class="h-1.5 rounded-full bg-emerald-600 transition-all duration-200 ease-out" :style="`width: ${rec.fitScore}%`"></div>
-      </div>
-      <template x-if="rec.fitNotes">
-        <p class="text-xs text-slate-500"><span class="font-semibold text-slate-600">Why this fits:</span> <span x-text="rec.fitNotes"></span></p>
-      </template>
-      <p class="text-sm text-slate-600" x-text="rec.item.notes"></p>
     </div>
     <div class="flex flex-col items-start gap-3 sm:items-end">
-      <p class="text-lg font-semibold text-slate-900" x-text="formatPrice(rec.item.price)"></p>
-      <div class="flex flex-wrap items-center gap-2">
-        <button class="inline-flex items-center justify-center rounded-lg border border-slate-200 px-3 py-2 text-[11px] font-semibold uppercase tracking-wide text-slate-600 transition-all duration-200 ease-out hover:border-slate-300 hover:text-slate-900" type="button" @click="openSwap(rec.key)">Swap</button>
-        <a class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 ease-out hover:bg-emerald-800" :href="rec.item.affiliate_link" target="_blank" rel="sponsored nofollow">Check price</a>
-      </div>
+      <a class="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 ease-out hover:bg-emerald-800" :href="rec.item.affiliate_link" target="_blank" rel="sponsored nofollow">Check current price</a>
+      <p class="text-[11px] text-slate-500">Price and availability vary.</p>
     </div>
   </div>
 </div>

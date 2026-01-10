@@ -1,32 +1,42 @@
 [
   {
+    "id": "softy-lite",
+    "name": "SIGPRO Softy Lite",
+    "tier": "mid",
+    "badge": "Joint friendly",
+    "affiliate_link": "https://example.com/sigpro-softy-lite",
+    "image": "/img/mats/sigpro-softy-lite.jpg",
+    "notes": "Comfortable hitting surface with moderate give.",
+    "min_width_ft": 4
+  },
+  {
     "id": "country-club-elite",
-    "name": "Country Club Elite Mat",
-    "price": 1199,
+    "name": "Country Club Elite",
     "tier": "pro",
+    "badge": "Tour feel",
     "affiliate_link": "https://example.com/country-club-elite",
     "image": "/img/mats/country-club-elite.jpg",
-    "badge": "Tour feel",
-    "notes": "Why this: top turf blend with excellent feedback and durability."
+    "notes": "Premium turf feel with durable base.",
+    "min_width_ft": 5
   },
   {
-    "id": "sigpro-softy",
-    "name": "SIGPRO Softy",
-    "price": 999,
-    "tier": "mid",
-    "affiliate_link": "https://example.com/sigpro-softy",
-    "image": "/img/mats/sigpro-softy.jpg",
-    "badge": "Joint friendly",
-    "notes": "Why this: forgiving surface that reduces wrist and elbow strain."
-  },
-  {
-    "id": "real-feel-basic",
-    "name": "Real Feel Basic Mat",
-    "price": 349,
+    "id": "basic-range-mat",
+    "name": "Range Starter Mat",
     "tier": "budget",
-    "affiliate_link": "https://example.com/real-feel-basic",
-    "image": "/img/mats/real-feel-basic.jpg",
-    "badge": "Starter pick",
-    "notes": "Why this: affordable entry mat that still holds up to regular use."
+    "badge": "Budget pick",
+    "affiliate_link": "https://example.com/range-starter-mat",
+    "image": "/img/mats/range-starter-mat.jpg",
+    "notes": "Simple mat for entry-level practice.",
+    "min_width_ft": 3
+  },
+  {
+    "id": "real-feel-2024",
+    "name": "Real Feel 5x4",
+    "tier": "mid",
+    "badge": "Balanced feel",
+    "affiliate_link": "https://example.com/real-feel-2024",
+    "image": "/img/mats/real-feel-2024.jpg",
+    "notes": "Solid feedback with consistent turf response.",
+    "min_width_ft": 4
   }
 ]

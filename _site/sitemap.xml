@@ -8,6 +8,19 @@
   </url>
   
   <url>
+    <loc>https://example.com/builds/12x15/</loc>
+  </url>
+  
+  <url>
+    <loc>https://example.com/builds/12x20/</loc>
+  </url>
+  
+  <url>
+    <loc>https://example.com/builds/14x20/</loc>
+  </url>
+  
+  
+  <url>
     <loc>https://example.com/blog/mixed-handed-setup/</loc>
   </url>
   

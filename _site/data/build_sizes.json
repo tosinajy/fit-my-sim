@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "12x15",
+    "width": 12,
+    "depth": 15,
+    "height": 9,
+    "label": "12x15 Room",
+    "notes": "Balanced starter size that supports most photometric monitors and a compact enclosure."
+  },
+  {
+    "slug": "12x20",
+    "width": 12,
+    "depth": 20,
+    "height": 9,
+    "label": "12x20 Room",
+    "notes": "Extra depth opens radar options while keeping a comfortable tee position."
+  },
+  {
+    "slug": "14x20",
+    "width": 14,
+    "depth": 20,
+    "height": 10,
+    "label": "14x20 Room",
+    "notes": "Wider bay for mixed handed play with room for a centered hitting line."
+  }
+]
